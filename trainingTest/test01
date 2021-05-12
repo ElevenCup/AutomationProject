@@ -1,0 +1,22 @@
+#导包
+import time
+import os
+from selenium import webdriver
+#实例化浏览器
+driver = webdriver.Chrome()
+driver.maximize_window()
+#业务操作
+driver.get("http://4399.com")
+before = driver.window_handles
+print(before)
+driver.find_element_by_link_text('台球').click()
+time.sleep(2)
+after = driver.window_handles
+print(after)
+driver.switch_to.window(after[-1])
+time.sleep(2)
+#关闭浏览器
+driver.close()
+
+#.driver.quit()
+
